@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="flex h-8 w-8 items-center justify-center rounded-full gradient-brand">
               <span className="text-sm font-bold text-primary-foreground">H</span>
             </div>
-            <span className="font-semibold gradient-brand-text">Handler Lab</span>
+            <span className="font-semibold gradient-brand-text">HandlerLab</span>
           </div>
 
           <nav className="flex items-center gap-6">
@@ -25,7 +25,7 @@ const Footer = () => {
           </nav>
 
           <p className="text-sm text-muted-foreground">
-            © 2026 Handler Lab. All rights reserved.
+            © 2026 HandlerLab. All rights reserved.
           </p>
         </div>
       </div>

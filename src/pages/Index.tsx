@@ -13,7 +13,7 @@ const Index = () => {
               Customization meets Performance
             </h1>
             <p className="mt-6 text-lg text-primary-foreground/80">
-              [Placeholder: Hero subtitle describing Handler Lab's custom PC building service]
+              [Placeholder: Hero subtitle describing HandlerLab's custom PC building service]
             </p>
             <div className="mt-10">
               <Button asChild size="lg" variant="secondary" className="text-secondary-foreground hover:opacity-90">
@@ -30,7 +30,7 @@ const Index = () => {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">About Us</h2>
             <p className="mt-6 text-lg text-primary-foreground/80">
-              [Placeholder: About section describing Handler Lab's mission, values, and what makes us different]
+              [Placeholder: About section describing HandlerLab's mission, values, and what makes us different]
             </p>
           </div>
         </div>
