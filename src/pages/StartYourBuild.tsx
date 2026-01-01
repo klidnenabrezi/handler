@@ -13,7 +13,7 @@ const StartYourBuild = () => {
   return (
     <Layout>
       {/* Page Header */}
-      <section className="border-b border-border py-16">
+      <section className="py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold md:text-5xl">
