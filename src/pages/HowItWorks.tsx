@@ -29,23 +29,23 @@ const HowItWorks = () => {
   return (
     <Layout>
       {/* Page Header */}
-      <section className="border-b border-border py-16">
+      <section className="gradient-brand py-16 pb-32">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold md:text-5xl">
-              How It <span className="gradient-brand-text">Works</span>
+            <h1 className="text-4xl font-bold text-white md:text-5xl">
+              How It <span className="text-white/90">Works</span>
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-white/80">
               [Placeholder: Brief introduction to the custom PC building process]
             </p>
           </div>
         </div>
       </section>
 
-      {/* Step-by-Step Guide */}
-      <section className="py-24">
+      {/* Step-by-Step Guide - Floating Card */}
+      <section className="relative -mt-20 pb-24">
         <div className="container">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-4xl rounded-2xl bg-background p-8 shadow-2xl md:p-12">
             <div className="space-y-12">
               {steps.map((step, index) => (
                 <div
@@ -69,17 +69,17 @@ const HowItWorks = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="border-t border-border bg-muted/30 py-16">
+      <section className="gradient-brand py-16">
         <div className="container">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-bold md:text-3xl">
+            <h2 className="text-2xl font-bold text-white md:text-3xl">
               Ready to build your dream PC?
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-white/80">
               [Placeholder: Encouraging message to start the build process]
             </p>
             <div className="mt-8">
-              <Button asChild size="lg" className="gradient-brand text-primary-foreground hover:opacity-90">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
                 <Link to="/start-your-build">Start Your Build</Link>
               </Button>
             </div>
