@@ -18,7 +18,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 270 50% 10%;
 
-    --primary: 263 70% 58%;
+    --primary: 263 70% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 330 81% 60%;
@@ -40,7 +40,7 @@
     --radius: 0.75rem;
 
     /* Brand gradient */
-    --gradient-start: 263 70% 58%;
+    --gradient-start: 263 70% 40%;
     --gradient-end: 330 81% 60%;
 
     --sidebar-background: 0 0% 98%;
