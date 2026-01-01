@@ -25,7 +25,7 @@ const Index = () => {
       </section>
 
       {/* Who Handler is For */}
-      <section className="py-24 gradient-brand">
+      <section className="min-h-screen flex items-center gradient-brand">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">Who HandlerLab is For</h2>
@@ -37,7 +37,7 @@ const Index = () => {
       </section>
 
       {/* Why Handler Exists */}
-      <section className="py-24 gradient-brand">
+      <section className="min-h-screen flex items-center gradient-brand">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">Why HandlerLab Exists</h2>
