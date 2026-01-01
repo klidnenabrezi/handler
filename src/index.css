@@ -43,6 +43,9 @@
     --gradient-start: 263 70% 40%;
     --gradient-end: 330 81% 60%;
 
+    /* Dark blue for nav/footer */
+    --nav-background: 220 60% 12%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 263 70% 58%;
