@@ -24,13 +24,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Us */}
+      {/* Who Handler is For */}
       <section className="py-24 gradient-brand">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">About Us</h2>
+            <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">Who HandlerLab is For</h2>
             <p className="mt-6 text-lg text-primary-foreground/80">
-              [Placeholder: About section describing HandlerLab's mission, values, and what makes us different]
+              [Placeholder: Describe target audience - gamers, content creators, professionals, enthusiasts who demand custom-built performance machines]
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Handler Exists */}
+      <section className="py-24 gradient-brand">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">Why HandlerLab Exists</h2>
+            <p className="mt-6 text-lg text-primary-foreground/80">
+              [Placeholder: Explain the mission - bridging the gap between off-the-shelf PCs and truly personalized builds, delivering expertise and quality]
             </p>
           </div>
         </div>
