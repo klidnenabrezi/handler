@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Banner */}
-      <section className="relative overflow-hidden py-24 md:py-32 gradient-brand">
+      <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center gradient-brand">
         <div className="container relative z-10">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold tracking-tight text-primary-foreground md:text-6xl">
