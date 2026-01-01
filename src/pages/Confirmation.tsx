@@ -28,7 +28,7 @@ const Confirmation = () => {
             <div className="mt-12 rounded-lg border border-border bg-card p-8">
               <h2 className="text-xl font-semibold">What happens next?</h2>
               <p className="mt-4 text-muted-foreground">
-                [Placeholder: Explanation of next steps - Handler Lab will review the request and reach out via the customer's preferred contact channel]
+                [Placeholder: Explanation of next steps - HandlerLab will review the request and reach out via the customer's preferred contact channel]
               </p>
             </div>
 
