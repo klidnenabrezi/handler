@@ -25,6 +25,7 @@ const goalOptions = [
   { id: "competitive-fps", label: "Competitive FPS" },
   { id: "quiet-cool", label: "Quiet and Cool" },
   { id: "upgrade-path", label: "Future Upgrade Path" },
+  { id: "nas-home-server", label: "NAS/Home Server" },
   { id: "other", label: "Not Sure Yet/Others" },
 ];
 
