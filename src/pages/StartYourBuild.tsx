@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -12,18 +13,49 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ChevronDown } from "lucide-react";
+
+const goalOptions = [
+  { id: "smooth-performance", label: "Smooth Performance" },
+  { id: "competitive-fps", label: "Competitive FPS" },
+  { id: "quiet-cool", label: "Quiet and Cool" },
+  { id: "upgrade-path", label: "Future Upgrade Path" },
+  { id: "other", label: "Not Sure Yet/Others" },
+];
 
 const StartYourBuild = () => {
   const navigate = useNavigate();
-  const [budget, setBudget] = useState("");
-  const [useCase, setUseCase] = useState("");
+  const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
+  const [otherGoalText, setOtherGoalText] = useState("");
   const [requirements, setRequirements] = useState("");
   const [contactMethod, setContactMethod] = useState("");
   const [email, setEmail] = useState("");
+  const [goalsOpen, setGoalsOpen] = useState(false);
+
+  const handleGoalToggle = (goalId: string) => {
+    setSelectedGoals((prev) =>
+      prev.includes(goalId)
+        ? prev.filter((id) => id !== goalId)
+        : [...prev, goalId]
+    );
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     navigate("/confirmation");
+  };
+
+  const getSelectedGoalsDisplay = () => {
+    if (selectedGoals.length === 0) return "";
+    const labels = selectedGoals.map(
+      (id) => goalOptions.find((opt) => opt.id === id)?.label
+    );
+    return labels.join(", ");
   };
 
   return (
@@ -47,43 +79,62 @@ const StartYourBuild = () => {
         <div className="container">
           <div className="mx-auto max-w-2xl">
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Question 1 - Budget & Use Case */}
+              {/* Question 1 - Goals */}
               <div className="rounded-lg border border-border bg-card p-6">
-                <Label htmlFor="budget" className="text-lg font-semibold">What's your budget range?</Label>
+                <Label className="text-lg font-semibold">What are you aiming for?</Label>
                 <p className="mt-2 text-muted-foreground">
-                  This helps us recommend the right components for your build.
+                  What matters the most to you? Select all that apply.
                 </p>
-                <Select value={budget} onValueChange={setBudget}>
-                  <SelectTrigger className="mt-4">
-                    <SelectValue placeholder="Select your budget range" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="under-500">Under $500</SelectItem>
-                    <SelectItem value="500-1000">$500 - $1,000</SelectItem>
-                    <SelectItem value="1000-2000">$1,000 - $2,000</SelectItem>
-                    <SelectItem value="2000-plus">$2,000+</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Popover open={goalsOpen} onOpenChange={setGoalsOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={goalsOpen}
+                      className="mt-4 w-full justify-between text-left font-normal"
+                    >
+                      <span className="truncate">
+                        {selectedGoals.length > 0
+                          ? getSelectedGoalsDisplay()
+                          : "Select your goals"}
+                      </span>
+                      <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0" align="start">
+                    <div className="p-2 space-y-2">
+                      {goalOptions.map((option) => (
+                        <div
+                          key={option.id}
+                          className="flex items-center space-x-2 p-2 rounded hover:bg-muted cursor-pointer"
+                          onClick={() => handleGoalToggle(option.id)}
+                        >
+                          <Checkbox
+                            id={option.id}
+                            checked={selectedGoals.includes(option.id)}
+                            onCheckedChange={() => handleGoalToggle(option.id)}
+                          />
+                          <label
+                            htmlFor={option.id}
+                            className="text-sm font-medium leading-none cursor-pointer flex-1"
+                          >
+                            {option.label}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
+                {selectedGoals.includes("other") && (
+                  <Input
+                    value={otherGoalText}
+                    onChange={(e) => setOtherGoalText(e.target.value)}
+                    placeholder="Tell us more about what you're looking for..."
+                    className="mt-4"
+                  />
+                )}
               </div>
 
-              {/* Question 2 - Primary Use Case */}
-              <div className="rounded-lg border border-border bg-card p-6">
-                <Label htmlFor="useCase" className="text-lg font-semibold">What will you primarily use this build for?</Label>
-                <p className="mt-2 text-muted-foreground">
-                  Select the main purpose for your new system.
-                </p>
-                <Select value={useCase} onValueChange={setUseCase}>
-                  <SelectTrigger className="mt-4">
-                    <SelectValue placeholder="Select primary use case" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="gaming">Gaming</SelectItem>
-                    <SelectItem value="content-creation">Content Creation</SelectItem>
-                    <SelectItem value="professional">Professional Work</SelectItem>
-                    <SelectItem value="general">General Use</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
 
               {/* Question 3 - Specific Requirements */}
               <div className="rounded-lg border border-border bg-card p-6">
