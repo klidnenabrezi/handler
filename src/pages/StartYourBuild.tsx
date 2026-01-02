@@ -28,10 +28,17 @@ const goalOptions = [
   { id: "other", label: "Not Sure Yet/Others" },
 ];
 
+const budgetOptions = [
+  { id: "low", label: "Low" },
+  { id: "mid", label: "Mid" },
+  { id: "high-end", label: "High End" },
+];
+
 const StartYourBuild = () => {
   const navigate = useNavigate();
   const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [otherGoalText, setOtherGoalText] = useState("");
+  const [selectedBudget, setSelectedBudget] = useState<string>("");
   const [requirements, setRequirements] = useState("");
   const [contactMethod, setContactMethod] = useState("");
   const [email, setEmail] = useState("");
@@ -135,6 +142,38 @@ const StartYourBuild = () => {
                 )}
               </div>
 
+              {/* Question 2 - Budget */}
+              <div className="rounded-lg border border-border bg-card p-6">
+                <Label className="text-lg font-semibold">What is your comfort budget?</Label>
+                <p className="mt-2 text-muted-foreground">
+                  This helps us recommend the right balance.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {budgetOptions.map((option) => (
+                    <div
+                      key={option.id}
+                      className={`flex items-center space-x-2 px-4 py-3 rounded-lg border cursor-pointer transition-colors ${
+                        selectedBudget === option.id
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:bg-muted"
+                      }`}
+                      onClick={() => setSelectedBudget(option.id)}
+                    >
+                      <Checkbox
+                        id={`budget-${option.id}`}
+                        checked={selectedBudget === option.id}
+                        onCheckedChange={() => setSelectedBudget(option.id)}
+                      />
+                      <label
+                        htmlFor={`budget-${option.id}`}
+                        className="text-sm font-medium leading-none cursor-pointer"
+                      >
+                        {option.label}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {/* Question 3 - Specific Requirements */}
               <div className="rounded-lg border border-border bg-card p-6">
