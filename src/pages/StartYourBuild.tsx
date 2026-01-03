@@ -42,7 +42,6 @@ const StartYourBuild = () => {
   const [selectedBudget, setSelectedBudget] = useState<string>("");
   const [requirements, setRequirements] = useState("");
   const [contactMethod, setContactMethod] = useState("");
-  const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [goalsOpen, setGoalsOpen] = useState(false);
 
@@ -198,14 +197,6 @@ const StartYourBuild = () => {
                 <p className="mt-2 text-muted-foreground">
                   We'll reach out to discuss your build details.
                 </p>
-                <Input
-                  id="customerName"
-                  type="text"
-                  value={customerName}
-                  onChange={(e) => setCustomerName(e.target.value)}
-                  placeholder="What should we call you?"
-                  className="mt-4"
-                />
                 <Select value={contactMethod} onValueChange={setContactMethod}>
                   <SelectTrigger className="mt-4">
                     <SelectValue placeholder="Select contact method" />
